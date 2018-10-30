@@ -5,6 +5,11 @@
             {{item.name}}
         </li>
     </ul>
+
+    <template>
+    <el-radio disabled v-model="radio" label="1">备选项</el-radio>
+    <el-radio v-model="radio" label="2">备选项</el-radio>
+    </template>
 </div>
     
 </template>
@@ -16,7 +21,8 @@ export default {
                 {name: '首页',checked:true},
                 {name: '商城',checked:false},
                 {name: 'TODO',checked:false},
-            ]
+            ],
+            radio: '1',
         }
     },
 
