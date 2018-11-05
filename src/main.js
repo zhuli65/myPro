@@ -5,7 +5,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router'
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts // 全局注册echarts
 Vue.use(ElementUI);
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 Vue.config.productionTip = false;
