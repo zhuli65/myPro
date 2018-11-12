@@ -10,16 +10,47 @@
       </li>
 
     </ul>
-
-
-
     <template>
-
         <el-radio disabled v-model="radio" label="1">备选项</el-radio>
-
         <el-radio v-model="radio" label="2">备选项</el-radio>
-</template>
+    </template>
     <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+
+    <!-- table -->
+    <template>
+      <div>
+        <el-table
+          :data="tableData6"
+          :span-method="arraySpanMethod"
+          border
+          style="width: 100%">
+          <el-table-column
+            prop="id"
+            label="ID"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名">
+          </el-table-column>
+          <el-table-column
+            prop="amount1"
+            sortable
+            label="数值 1">
+          </el-table-column>
+          <el-table-column
+            prop="amount2"
+            sortable
+            label="数值 2">
+          </el-table-column>
+          <el-table-column
+            prop="amount3"
+            sortable
+            label="数值 3">
+          </el-table-column>
+        </el-table>
+      </div>
+    </template>
 </div>
 
 </template>
@@ -56,6 +87,42 @@
           },
 
         ],
+        tableData6: [{
+          id: '12987122',
+          status: '1',
+          name: '王小虎',
+          amount1: '234',
+          amount2: '3.2',
+          amount3: 10
+        }, {
+          id: '12987123',
+          status: '0',
+          name: '王小虎',
+          amount1: '165',
+          amount2: '4.43',
+          amount3: 12
+        }, {
+          id: '12987124',
+          status: '1',
+          name: '王小虎',
+          amount1: '324',
+          amount2: '1.9',
+          amount3: 9
+        }, {
+          id: '12987125',
+          status: '1',
+          name: '王小虎',
+          amount1: '621',
+          amount2: '2.2',
+          amount3: 17
+        }, {
+          id: '12987126',
+          status: '0',
+          name: '王小虎',
+          amount1: '539',
+          amount2: '4.1',
+          amount3: 15
+        }],
 
         radio: '1',
 
@@ -70,7 +137,14 @@
     },
 
     methods: {
-
+       arraySpanMethod({ row, column, rowIndex, columnIndex }) {
+         console.log(JSON.stringify(row));
+          if(row.status === '0'){
+            if (columnIndex === 3) {
+              return [1, 2];
+            }
+          }
+      },
       changeActive: function(index) {
 
         let self = this;
