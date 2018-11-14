@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import BeforeEach from './beforeEach.js'
+import tabs from './tab.meniu.js'
 
 // import Test from '@/components/test.vue'
 // import ShopPro from '@/pages/shopPro/index.vue'
@@ -47,8 +48,8 @@ const router = new Router({
       path: '/helloWorld',
       name: 'HelloWorld',
       component: HelloWorld
-    }
-
+    },
+    ...tabs
   ]
 })
 router.beforeEach(BeforeEach)
