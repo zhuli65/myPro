@@ -140,8 +140,10 @@
        arraySpanMethod({ row, column, rowIndex, columnIndex }) {
          console.log(JSON.stringify(row));
           if(row.status === '0'){
-            if (columnIndex === 3) {
-              return [1, 2];
+            if (columnIndex === 1) { // 从第一列开始合并3列
+              return [1, 3];
+            }else if(columnIndex === 2 || columnIndex === 3){ // 第2列和第3列的数据不展示
+              return [0, 0]; // 0表示合并  1表示不合并
             }
           }
       },
